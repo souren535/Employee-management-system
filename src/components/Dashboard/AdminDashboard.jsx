@@ -9,13 +9,13 @@ const AdminDashboard = () => {
         <form action="">
           <h3 className="text-xl ">Task Title</h3>
           <input
-            className="w-2xl bg-zinc-600 rounded-lg px-3 py-3"
+            className="w-2xl outline-none placeholder:text-white bg-zinc-600 rounded-lg px-3 py-3"
             type="text"
             placeholder="Make a UI design"
           />
           <h3 className="text-xl mt-2">Description</h3>
           <textarea
-            className="w-2xl bg-zinc-600 rounded-lg px-3 py-3"
+            className="w-2xl outline-none placeholder:text-white bg-zinc-600 rounded-lg px-3 py-3"
             name=""
             id=""
             cols="30"
@@ -24,17 +24,17 @@ const AdminDashboard = () => {
           ></textarea>
           <h3 className="text-xl mt-2">Date</h3>
           <input
-            className="w-2xl bg-zinc-600 rounded-lg px-3 py-3"
+            className="w-2xl outline-none placeholder:text-white bg-zinc-600 rounded-lg px-3 py-3"
             type="date"
           />
           <h3 className="text-xl mt-2">Assign To</h3>
           <input
-            className="w-2xl bg-zinc-600 rounded-lg px-3 py-3"
+            className="w-2xl outline-none placeholder:text-white bg-zinc-600 rounded-lg px-3 py-3"
             type="text"
           />
           <h3 className="text-xl mt-2">Category</h3>
           <input
-            className="w-2xl bg-zinc-600 rounded-lg px-3 py-3"
+            className="w-2xl outline-none placeholder:text-white bg-zinc-600 rounded-lg px-3 py-3"
             type="text"
             placeholder="Design, Development, etc......"
           />
