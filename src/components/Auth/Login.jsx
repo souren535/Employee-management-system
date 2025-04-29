@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Login = () => {
-  const submitHamdeler = () => {
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const submitHamdeler = (e) => {
+    e.preventDefault();
     console.log("Hey your data is submitted");
+    setemail("");
+    setpassword("");
   };
   return (
     <div className="flex bg-zinc-900 justify-center w-full h-screen text-white items-center">
       <div className="form">
-        <form action="" onSubmit={submitHamdeler} className="flex flex-col">
+        <form
+          action=""
+          onSubmit={(e) => {
+            submitHamdeler(e);
+          }}
+          className="flex flex-col"
+        >
           <h3 className="text-5xl font-semibold mb-5 text-center">Log In</h3>
           <input
+            value={email}
+            onChange={(e) => setemail(e.target.value)}
             type="email"
             required
             className=" border-2 border-red-300 w-2xl rounded-full py-3 placeholder:text-zinc-400 p-4 outline-none"
@@ -18,6 +31,8 @@ const Login = () => {
           />
 
           <input
+            value={password}
+            onChange={(e) => setpassword(e.target.value)}
             type="password"
             required
             className=" border-2 mt-4 border-red-300 w-2xl rounded-full py-3 placeholder:text-zinc-400 p-4 outline-none"
