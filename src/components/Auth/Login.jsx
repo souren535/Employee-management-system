@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-const Login = () => {
+const Login = ({loginHendeler}) => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const submitHamdeler = (e) => {
     e.preventDefault();
-    console.log("Hey your data is submitted");
+    loginHendeler(email, password);
     setemail("");
     setpassword("");
   };
@@ -13,7 +13,6 @@ const Login = () => {
     <div className="flex bg-zinc-900 justify-center w-full h-screen text-white items-center">
       <div className="form">
         <form
-          action=""
           onSubmit={(e) => {
             submitHamdeler(e);
           }}
