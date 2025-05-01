@@ -6,13 +6,26 @@ import { getLocalStorage, setLocalStorage } from "./utils/LocalStorage";
 import { AuthContext } from "./context/AuthProvider";
 
 const App = () => {
-  const [user, setuser] = useState(null);
+  const [user, setUser] = useState(null);
+  const [loggedInUserData, setLoggedInUserData] = useState(null);
+  const authData = useContext(AuthContext);
 
   const loginHendeler = (email, password) => {
     if (email == "admin@me.com" && password == "123") {
-      setuser("admin");
-    } else if (email == "user@me.com" && password == "123") {
-      setuser("employee");
+      setUser("admin");
+      localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" }));
+    } else if (authData) {
+      const employee = authData.employees.find(
+        (e) => e.email == email && e.password == password
+      );
+      if (employee) {
+        setUser("employee");
+        setLoggedInUserData(employee);
+        localStorage.setItem(
+          "loggedInUser",
+          JSON.stringify({ role: "employee", employee })
+        );
+      }
     } else {
       alert("Invaild email or password");
     }
@@ -23,9 +36,7 @@ const App = () => {
   return (
     <>
       {!user ? <Login loginHendeler={loginHendeler} /> : ""}
-      {user == "admin" ? <AdminDashboard /> : <EmployeeDashboard />}
-      {/* <EmployeeDashboard /> */}
-      {/* <AdminDashboard/> */}
+      {user == "admin" ? <AdminDashboard /> : (user == "employee" ? <EmployeeDashboard data = {loggedInUserData}/> : null)}
     </>
   );
 };
