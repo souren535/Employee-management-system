@@ -33,6 +33,8 @@ const CreateTask = () => {
         employee.tasks.push(newTask);
         console.log("Task added to:", employee);
         assigned = true;
+        employee.active = true;
+        employee.taskCounts.newTask = employee.taskCounts.newTask + 1;
       }
     });
 
