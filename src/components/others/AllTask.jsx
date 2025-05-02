@@ -21,10 +21,10 @@ const AllTask = () => {
           <div key={i} className="bg-transparent py-2 px-4 rounded-md text-3xl font-semibold">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 text-white text-sm">
               <h2 className="text-zinc-100 px-2 py-1 rounded">{e.firstname}</h2>
-              <h3 className="text-blue-400 px-2 py-1 rounded">Task</h3>
-              <h5 className="text-green-400 px-2 py-1 rounded hidden sm:block">Status</h5>
-              <h5 className="text-yellow-400 px-2 py-1 rounded hidden md:block">Active</h5>
-              <h5 className="text-red-400 px-2 py-1 rounded hidden md:block">Failed</h5>
+              <h3 className="text-blue-400 px-2 py-1 rounded">{e.taskCounts.newTask}</h3>
+              <h5 className="text-green-400 px-2 py-1 rounded hidden sm:block">{e.taskCounts.completed}</h5>
+              <h5 className="text-yellow-400 px-2 py-1 rounded hidden md:block">{e.taskCounts.active}</h5>
+              <h5 className="text-red-400 px-2 py-1 rounded hidden md:block">{e.taskCounts.failed}</h5>
             </div>
           </div>
         ))}
